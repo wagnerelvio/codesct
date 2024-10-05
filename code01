@@ -1,0 +1,26 @@
+Sub ConverterParaMaiusculasEspecifico()
+    Dim ws As Worksheet
+    Dim rngD As Range, rngH As Range
+    Dim celula As Range
+
+    ' Definir a planilha Teste e a aba Dados02
+    Set ws = ThisWorkbook.Sheets("Dados02")
+
+    ' Definir os intervalos das colunas D2:D46 e H2:H46
+    Set rngD = ws.Range("D2:D46")
+    Set rngH = ws.Range("H2:H46")
+
+    ' Converter coluna D para maiúsculas
+    For Each celula In rngD
+        If Not IsEmpty(celula.Value) And WorksheetFunction.IsText(celula.Value) Then
+            celula.Value = UCase(celula.Value)
+        End If
+    Next celula
+
+    ' Converter coluna H para maiúsculas
+    For Each celula In rngH
+        If Not IsEmpty(celula.Value) And WorksheetFunction.IsText(celula.Value) Then
+            celula.Value = UCase(celula.Value)
+        End If
+    Next celula
+End Sub
